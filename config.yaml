@@ -1,0 +1,76 @@
+datasets:
+#    -
+#        name: mvtec_anomaly_detection
+#        path: 
+    -
+        name: mvtec_loco_anomaly_detection
+        path: /path/to/mvtec_loco_anomaly_detection
+
+mvtec_loco_objects:
+    -
+        name: breakfast_box
+        train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png", "008.png", "009.png"]
+    -
+        name: juice_bottle
+        train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png", "008.png", "009.png"]
+    -
+        name: pushpins
+        train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png", "008.png", "009.png"]
+    -
+        name: screw_bag
+        train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png", "008.png", "009.png"]
+    -
+        name: splicing_connectors
+        train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png", "008.png", "009.png"]
+
+    #train: ["000.png", "001.png", "002.png", "003.png"] 
+    #train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png"] 
+    #train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png", "008.png", "009.png"]
+    #train: ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png", "008.png", "009.png", "010.png", "011.png", "012.png", "013.png", "014.png", "015.png"]
+
+models:
+    -
+        provider: google-vertex
+        llm: cde-detc-anomalia-gemini-2.0-flash
+        litellm: gemini-2.0-flash
+        rpm: 1000 # Requests per minute
+        rpd: 1000 # Requests per day
+        temperature: 0.0
+        max_tokens: 8192
+        seed: 777
+    -
+       provider: google-vertex
+       llm: cde-detc-anomalia-gemini-2.5-flash
+       litellm: gemini-2.5-flash
+       rpm: 1000 # Requests per minute
+       rpd: 1000 # Requests per day
+       temperature: 0.0
+       max_tokens: 8192
+       seed: 777
+    -
+        provider: openai
+        llm: cde-detc-anomalia-gpt-4.1
+        litellm: gpt-4.1
+        rpm: 500 # Requests per minute
+        rpd: 500 # Requests per day
+        temperature: 0.0
+        max_tokens: 8192
+        seed: 777
+    -
+        provider: openai
+        llm: "cde-detc-anomalia-o4-mini"
+        litellm: o4-mini
+        rpm: 500 # Requests per minute
+        rpd: 500 # Requests per day
+        temperature: 0.0
+        max_tokens: 8192
+        seed: 777
+    -
+        provider: groq
+        llm: meta-llama/llama-4-maverick-17b-128e-instruct
+        litellm: meta-llama/llama-4-maverick-17b-128e-instruct
+        rpm: 30 # Requests per minute
+        rpd: 1000 # Requests per day
+        temperature: 0.0
+        max_tokens: 8192
+        seed: 777
